@@ -1,0 +1,5 @@
+name,url_key,path,active,is_anchor,include_in_menu,position,page_layout,display_mode,landing_page,custom_layout_update
+Accessories,venia-accessories,,1,1,1,4,,,,
+Belts,venia-belts,Accessories,1,1,1,1,,,,
+Jewelry,venia-jewelry,Accessories,1,1,1,2,,,,
+Scarves,venia-scarves,Accessories,1,1,1,3,,,,

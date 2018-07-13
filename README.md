@@ -1,0 +1,1 @@
+Magento_CatalogSampleDataVenia module consists of installation scripts and fixtures.
