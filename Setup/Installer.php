@@ -12,28 +12,28 @@ class Installer implements Setup\SampleData\InstallerInterface
     /**
      * Setup class for category
      *
-     * @var \Magento\CatalogSampleData\Model\Category
+     * @var \Magento\CatalogSampleDataVenia\Model\Category
      */
     protected $categorySetup;
 
     /**
      * Setup class for product attributes
      *
-     * @var \Magento\CatalogSampleData\Model\Attribute
+     * @var \Magento\CatalogSampleDataVenia\Model\Attribute
      */
     protected $attributeSetup;
 
     /**
      * Setup class for products
      *
-     * @var \Magento\CatalogSampleData\Model\Product
+     * @var \Magento\CatalogSampleDataVenia\Model\Product
      */
     protected $productSetup;
 
     /**
-     * @param \Magento\CatalogSampleData\Model\Category $categorySetup
-     * @param \Magento\CatalogSampleData\Model\Attribute $attributeSetup
-     * @param \Magento\CatalogSampleData\Model\Product $productSetup
+     * @param \Magento\CatalogSampleDataVenia\Model\Category $categorySetup
+     * @param \Magento\CatalogSampleDataVenia\Model\Attribute $attributeSetup
+     * @param \Magento\CatalogSampleDataVenia\Model\Product $productSetup
      */
     public function __construct(
         \Magento\CatalogSampleDataVenia\Model\Category $categorySetup,
@@ -50,8 +50,8 @@ class Installer implements Setup\SampleData\InstallerInterface
      */
     public function install()
     {
-        $this->attributeSetup->install(['Magento_CatalogSampleData::fixtures/attributes.csv']);
-        $this->categorySetup->install(['Magento_CatalogSampleData::fixtures/categories.csv']);
+        $this->attributeSetup->install(['Magento_CatalogSampleDataVenia::fixtures/attributes.csv']);
+        $this->categorySetup->install(['Magento_CatalogSampleDataVenia::fixtures/categories.csv']);
         $this->productSetup->install(
             [
                 'Magento_CatalogSampleDataVenia::fixtures/SimpleProduct/products_accessories.csv'

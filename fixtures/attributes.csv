@@ -4,85 +4,14 @@ Dresses
 Fashion Tops
 Fashion Bottoms"
 "Color
-Fashion Color",select,0,"Peach
-Khaki
-Lilac
-Rain
-Mint
-Lily
-Latte
-Gold
-Silver
-Cocoa",,fashion_color,1,,0,,,0,1,1,1,1,1,,0,1,0,1,0,"Fashion Accessories
-Dresses
-Fashion Tops
-Fashion Bottoms"
-"Size
-Fashion Size",select,0,"L
-M
-S
-XS
-2
-4
-6
-8
-10
-12",,fashion_size,1,,0,,,0,0,0,,1,0,,1,1,0,0,0,"Fashion Accessories
-Dresses
-Fashion Tops
-Fashion Bottoms"
-Video File,text,0,,,video_file,1,,0,,,0,1,1,1,1,1,,0,1,0,1,0,"Fashion Accessories
+Fashion Color",select,0,"Gold
+Silver",,fashion_color,1,,0,,,0,1,1,1,1,1,,0,1,0,1,0,"Fashion Accessories
 Dresses
 Fashion Tops
 Fashion Bottoms"
 "Material
 Fashion Material",multiselect,0,"14K Gold
-Acrylic
-Cashmere
-Cotton
-Linen
-Leather
-Nylon
-Organic Cotton
-Polyester
-Polyester
-Rayon
-Silk
-Spandex
-Sterling Silver
-Viscose
-Wool",,fashion_material,1,,0,,,0,1,1,1,1,1,,1,1,0,1,0,"Fashion Accessories
-Dresses
-Fashion Tops
-Fashion Bottoms"
-"Style
-Fashion Style",multiselect,0,"Above Knee
-Below Knee
-Ankle Length
-Halter Top
-Short Sleeve
-Sleeveless
-Long Sleeve
-3/4 Sleeve
-Slim Fit
-Wide Leg
-Capri
-Full Length
-Straight Leg
-Open Front
-Crew
-Hooded
-Scoopneck
-V-neck
-Button-down
-Rectangle
-Infinity
-Braided
-Lasercut
-Woven",,fashion_style,1,,0,,,0,1,1,1,1,1,,1,1,0,1,0,"Dresses
-Fashion Tops
-Fashion Bottoms"
-Has Video,boolean,0,,,has_video,1,,0,,,0,1,1,1,1,1,,1,1,0,1,0,"Fashion Accessories
+Sterling Silver",,fashion_material,1,,0,,,0,1,1,1,1,1,,1,1,0,1,0,"Fashion Accessories
 Dresses
 Fashion Tops
 Fashion Bottoms"
