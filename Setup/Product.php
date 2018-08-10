@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\CatalogSampleDataVenia\Model;
+namespace Magento\CatalogSampleDataVenia\Setup;
 
 use Magento\Framework\Setup\SampleData\Context as SampleDataContext;
 
@@ -64,6 +64,9 @@ class Product
      */
     protected $eavConfig;
 
+    /** @var \Magento\Framework\App\State */
+    protected $appState;
+
     /**
      * Product constructor.
      * @param SampleDataContext $sampleDataContext
@@ -73,6 +76,7 @@ class Product
      * @param Product\Gallery $gallery
      * @param \Magento\Store\Model\StoreManagerInterface $storeManager
      * @param \Magento\Eav\Model\Config $eavConfig
+     * @param \Magento\Framework\App\State $appState
      */
     public function __construct(
         SampleDataContext $sampleDataContext,
@@ -81,7 +85,8 @@ class Product
         Product\Converter $converter,
         Product\Gallery $gallery,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Magento\Eav\Model\Config $eavConfig
+        \Magento\Eav\Model\Config $eavConfig,
+        \Magento\Framework\App\State $appState
     ) {
         $this->fixtureManager = $sampleDataContext->getFixtureManager();
         $this->productFactory = $productFactory;
@@ -91,6 +96,7 @@ class Product
         $this->gallery = $gallery;
         $this->storeManager = $storeManager;
         $this->eavConfig = $eavConfig;
+        $this->appState = $appState;
     }
 
     /**
@@ -138,8 +144,11 @@ class Product
                 }
 
                 $this->prepareProduct($product, $data);
-
-                $product->save();
+                $this->appState->emulateAreaCode(
+                    'adminhtml',
+                    [$product, 'save']
+                );
+                //$product->save();
                 $this->installGallery($product);
             }
         }

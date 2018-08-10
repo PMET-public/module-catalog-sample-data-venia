@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\CatalogSampleDataVenia\Model\Product;
+namespace Magento\CatalogSampleDataVenia\Setup\Product;
 
 class Converter
 {

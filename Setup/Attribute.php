@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\CatalogSampleDataVenia\Model;
+namespace Magento\CatalogSampleDataVenia\Setup;
 
 use Magento\Framework\Setup\SampleData\Context as SampleDataContext;
 use Magento\Store\Model\StoreManagerInterface;
