@@ -1,1 +1,3 @@
-Magento_CatalogSampleDataVenia module consists of installation scripts and fixtures.
+## Magento_CatalogSampleDataVenia
+Sample data for Magento PWA
+Creates Venia simple products and their required categories and attributes
