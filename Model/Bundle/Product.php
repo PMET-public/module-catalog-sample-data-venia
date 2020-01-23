@@ -31,11 +31,10 @@ class Product extends \Magento\CatalogSampleDataVenia\Setup\Product
      * @param SampleDataContext $sampleDataContext
      * @param \Magento\Catalog\Model\ProductFactory $productFactory
      * @param \Magento\Catalog\Model\ConfigFactory $catalogConfig
-     * @param Converter $converter
+     * @param Product\Converter $converter
      * @param \Magento\CatalogSampleDataVenia\Setup\Product\Gallery $gallery
      * @param \Magento\Store\Model\StoreManagerInterface $storeManager
      * @param \Magento\Eav\Model\Config $eavConfig
-     * @param \Magento\Framework\App\State $appState
      */
     public function __construct(
         SampleDataContext $sampleDataContext,
