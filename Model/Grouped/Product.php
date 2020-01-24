@@ -5,8 +5,15 @@
  */
 namespace Magento\CatalogSampleDataVenia\Model\Grouped;
 
+use Magento\Catalog\Model\ConfigFactory;
+use Magento\Catalog\Model\Product\Initialization\Helper\ProductLinks;
+use Magento\Catalog\Model\ProductFactory;
+use Magento\CatalogSampleDataVenia\Setup\Product\Gallery;
+use Magento\Eav\Model\Config;
 use Magento\Framework\App\ObjectManager;
+use Magento\Framework\App\State;
 use Magento\Framework\Setup\SampleData\Context as SampleDataContext;
+use Magento\Store\Model\StoreManagerInterface;
 
 /**
  * Setup grouped product
@@ -19,32 +26,30 @@ class Product extends \Magento\CatalogSampleDataVenia\Setup\Product
     protected $productType = \Magento\GroupedProduct\Model\Product\Type\Grouped::TYPE_CODE;
 
     /**
-     * @var \Magento\Catalog\Model\Product\Initialization\Helper\ProductLinks
+     * @var ProductLinks
      */
     private $productLinksHelper;
 
     /**
      * Product constructor.
      * @param SampleDataContext $sampleDataContext
-     * @param \Magento\Catalog\Model\ProductFactory $productFactory
-     * @param \Magento\Catalog\Model\ConfigFactory $catalogConfig
-     * @param \Magento\CatalogSampleDataVenia\Model\Grouped\Converter $converter
-     * @param \Magento\Framework\Setup\SampleData\FixtureManager $fixtureManager
-     * @param \Magento\CatalogSampleDataVenia\Setup\Product\Gallery $gallery
-     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
-     * @param \Magento\Eav\Model\Config $eavConfig
-     * @param \Magento\Framework\App\State $appState
+     * @param ProductFactory $productFactory
+     * @param ConfigFactory $catalogConfig
+     * @param Converter $converter
+     * @param Gallery $gallery
+     * @param StoreManagerInterface $storeManager
+     * @param Config $eavConfig
+     * @param State $appState
      */
     public function __construct(
         SampleDataContext $sampleDataContext,
-        \Magento\Catalog\Model\ProductFactory $productFactory,
-        \Magento\Catalog\Model\ConfigFactory $catalogConfig,
-        \Magento\CatalogSampleDataVenia\Model\Grouped\Converter $converter,
-        \Magento\Framework\Setup\SampleData\FixtureManager $fixtureManager,
-        \Magento\CatalogSampleDataVenia\Setup\Product\Gallery $gallery,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Magento\Eav\Model\Config $eavConfig,
-        \Magento\Framework\App\State $appState
+        ProductFactory $productFactory,
+        ConfigFactory $catalogConfig,
+        Converter $converter,
+        Gallery $gallery,
+        StoreManagerInterface $storeManager,
+        Config $eavConfig,
+        State $appState
     ) {
         parent::__construct(
             $sampleDataContext,
@@ -74,7 +79,7 @@ class Product extends \Magento\CatalogSampleDataVenia\Setup\Product
      * Get product links helper
      *
      * @deprecated
-     * @return \Magento\Catalog\Model\Product\Initialization\Helper\ProductLinks
+     * @return ProductLinks
      */
     private function getProductLinksHelper()
     {

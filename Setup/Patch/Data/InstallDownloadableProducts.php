@@ -8,7 +8,6 @@ namespace Magento\CatalogSampleDataVenia\Setup\Patch\Data;
 
 
 use Magento\Framework\Setup\Patch\DataPatchInterface;
-use Magento\Framework\Setup;
 use Magento\CatalogSampleDataVenia\Setup\Category;
 use Magento\CatalogSampleDataVenia\Setup\Attribute;
 use Magento\CatalogSampleDataVenia\Model\Downloadable\Product;
@@ -19,17 +18,17 @@ class InstallDownloadableProducts implements DataPatchInterface
 {
 
     /**
-     * @var \Magento\CatalogSampleData\Model\Category
+     * @var Category
      */
     protected $category;
 
     /**
-     * @var \Magento\CatalogSampleData\Model\Attribute
+     * @var Attribute
      */
     private $attribute;
 
     /**
-     * @var \Magento\DownloadableSampleData\Model\Product
+     * @var Product
      */
     private $downloadableProduct;
 

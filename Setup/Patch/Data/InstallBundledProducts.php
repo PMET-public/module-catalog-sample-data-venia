@@ -8,7 +8,6 @@ namespace Magento\CatalogSampleDataVenia\Setup\Patch\Data;
 
 
 use Magento\Framework\Setup\Patch\DataPatchInterface;
-use Magento\Framework\Setup;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Store\Model\Store;
 use Magento\CatalogSampleDataVenia\Model\Bundle\Product as BundleProduct;

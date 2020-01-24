@@ -5,11 +5,18 @@
  */
 namespace Magento\CatalogSampleDataVenia\Model\Downloadable;
 
+use Magento\Catalog\Model\ConfigFactory;
+use Magento\CatalogSampleDataVenia\Setup\Product\Gallery;
+use Magento\Downloadable\Model\Product\Type;
+use Magento\Eav\Model\Config;
+use Magento\Framework\App\State;
 use Magento\Framework\Setup\SampleData\Context as SampleDataContext;
 use Magento\Downloadable\Api\Data\SampleInterfaceFactory as SampleFactory;
 use Magento\Downloadable\Api\Data\LinkInterfaceFactory as LinkFactory;
 use Magento\Framework\App\ObjectManager;
 use Magento\CatalogSampleDataVenia\Model\Downloadable\Converter as DownloadableConverter;
+use Magento\Catalog\Model\ProductFactory;
+use Magento\Store\Model\StoreManagerInterface;
 
 /**
  * Setup downloadable product
@@ -19,7 +26,7 @@ class Product extends \Magento\CatalogSampleDataVenia\Setup\Product
     /**
      * @var string
      */
-    protected $productType = \Magento\Downloadable\Model\Product\Type::TYPE_DOWNLOADABLE;
+    protected $productType = Type::TYPE_DOWNLOADABLE;
 
     /**
      * @var DownloadableConverter $converter
@@ -44,25 +51,23 @@ class Product extends \Magento\CatalogSampleDataVenia\Setup\Product
     /**
      * Product constructor.
      * @param SampleDataContext $sampleDataContext
-     * @param \Magento\Catalog\Model\ProductFactory $productFactory
-     * @param \Magento\Catalog\Model\ConfigFactory $catalogConfig
-     * @param DownloadableConverter $converter
-     * @param \Magento\CatalogSampleDataVenia\Setup\Product\Gallery $gallery
-     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
-     * @param \Magento\Eav\Model\Config $eavConfig
-     * @param \Magento\Downloadable\Api\Data\File\ContentInterfaceFactory $contentInterfaceFactory
-     * @param \Magento\Framework\App\State $appState
+     * @param ProductFactory $productFactory
+     * @param ConfigFactory $catalogConfig
+     * @param Converter $converter
+     * @param Gallery $gallery
+     * @param StoreManagerInterface $storeManager
+     * @param Config $eavConfig
+     * @param State $appState
      */
     public function __construct(
         SampleDataContext $sampleDataContext,
-        \Magento\Catalog\Model\ProductFactory $productFactory,
-        \Magento\Catalog\Model\ConfigFactory $catalogConfig,
+        ProductFactory $productFactory,
+        ConfigFactory $catalogConfig,
         DownloadableConverter $converter,
-        \Magento\CatalogSampleDataVenia\Setup\Product\Gallery $gallery,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Magento\Eav\Model\Config $eavConfig,
-        \Magento\Downloadable\Api\Data\File\ContentInterfaceFactory $contentInterfaceFactory,
-        \Magento\Framework\App\State $appState
+        Gallery $gallery,
+        StoreManagerInterface $storeManager,
+        Config $eavConfig,
+        State $appState
     ) {
         parent::__construct(
             $sampleDataContext,
@@ -189,7 +194,7 @@ class Product extends \Magento\CatalogSampleDataVenia\Setup\Product
      * Get link interface factory
      *
      * @deprecated
-     * @return \Magento\Downloadable\Api\Data\LinkInterfaceFactory
+     * @return LinkFactory
      */
     private function getLinkFactory()
     {
@@ -205,7 +210,7 @@ class Product extends \Magento\CatalogSampleDataVenia\Setup\Product
      * Get sample interface factory
      *
      * @deprecated
-     * @return \Magento\Downloadable\Api\Data\SampleInterfaceFactory
+     * @return SampleFactory
      */
     private function getSampleFactory()
     {

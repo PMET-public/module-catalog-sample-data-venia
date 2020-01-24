@@ -5,9 +5,17 @@
  */
 namespace Magento\CatalogSampleDataVenia\Model\Downloadable;
 
+use Magento\Catalog\Model\Category\TreeFactory;
+use Magento\Catalog\Model\ResourceModel\Category\TreeFactory as ResourceModelTreeFactory;
+use Magento\Catalog\Model\ResourceModel\Category\CollectionFactory as CategoryCollection;
+use Magento\Catalog\Model\ResourceModel\Product\Attribute\CollectionFactory as AttributeCollectionFactory;
+use Magento\Downloadable\Api\Data\File\ContentInterfaceFactory;
+use Magento\Eav\Model\Config;
+use Magento\Eav\Model\ResourceModel\Entity\Attribute\Option\CollectionFactory as OptionCollectionFactory;
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Filesystem;
+use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory as ProductCollectionFactory;
 
 /**
  * Class Converter
@@ -15,24 +23,36 @@ use Magento\Framework\Filesystem;
 class Converter extends \Magento\CatalogSampleDataVenia\Setup\Product\Converter
 {
     /**
-     * @var \Magento\Downloadable\Api\Data\File\ContentInterfaceFactory
+     * @var ContentInterfaceFactory
      */
     private $fileContentFactory;
 
     /**
-     * @var \Magento\Framework\Filesystem
+     * @var Filesystem
      */
     private $filesystem;
 
+    /**
+     * Converter constructor.
+     * @param TreeFactory $categoryTreeFactory
+     * @param ResourceModelTreeFactory $categoryResourceTreeFactory
+     * @param Config $eavConfig
+     * @param CategoryCollection $categoryCollectionFactory
+     * @param AttributeCollectionFactory $attributeCollectionFactory
+     * @param OptionCollectionFactory $attrOptionCollectionFactory
+     * @param ProductCollectionFactory $productCollectionFactory
+     * @param ContentInterfaceFactory|null $fileContentFactory
+     * @param Filesystem|null $filesystem
+     */
     public function __construct(
-        \Magento\Catalog\Model\Category\TreeFactory $categoryTreeFactory,
-        \Magento\Catalog\Model\ResourceModel\Category\TreeFactory $categoryResourceTreeFactory,
-        \Magento\Eav\Model\Config $eavConfig,
-        \Magento\Catalog\Model\ResourceModel\Category\CollectionFactory $categoryCollectionFactory,
-        \Magento\Catalog\Model\ResourceModel\Product\Attribute\CollectionFactory $attributeCollectionFactory,
-        \Magento\Eav\Model\ResourceModel\Entity\Attribute\Option\CollectionFactory $attrOptionCollectionFactory,
-        \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory,
-        \Magento\Downloadable\Api\Data\File\ContentInterfaceFactory $fileContentFactory = null,
+        TreeFactory $categoryTreeFactory,
+        ResourceModelTreeFactory $categoryResourceTreeFactory,
+        Config $eavConfig,
+        CategoryCollection $categoryCollectionFactory,
+        AttributeCollectionFactory $attributeCollectionFactory,
+        OptionCollectionFactory $attrOptionCollectionFactory,
+        ProductCollectionFactory $productCollectionFactory,
+        ContentInterfaceFactory $fileContentFactory = null,
         Filesystem $filesystem = null
     ) {
         parent::__construct(
@@ -45,7 +65,7 @@ class Converter extends \Magento\CatalogSampleDataVenia\Setup\Product\Converter
             $productCollectionFactory
         );
         $this->fileContentFactory = $fileContentFactory ?: ObjectManager::getInstance()->get(
-            \Magento\Downloadable\Api\Data\File\ContentInterfaceFactory::class
+            ContentInterfaceFactory::class
         );
         $this->filesystem = $filesystem ?: ObjectManager::getInstance()->get(
             Filesystem::class

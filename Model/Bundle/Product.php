@@ -9,7 +9,14 @@ use Magento\Framework\Setup\SampleData\Context as SampleDataContext;
 use Magento\Bundle\Api\Data\OptionInterfaceFactory as OptionFactory;
 use Magento\Bundle\Api\Data\LinkInterfaceFactory as LinkFactory;
 use Magento\Catalog\Api\ProductRepositoryInterface as ProductRepository;
-use \Magento\Framework\App\ObjectManager;
+use Magento\Catalog\Model\ProductFactory;
+use Magento\Catalog\Model\ConfigFactory;
+use Magento\Framework\App\ObjectManager;
+use Magento\CatalogSampleDataVenia\Model\Bundle\Converter;
+use Magento\CatalogSampleDataVenia\Setup\Product\Gallery;
+use Magento\Store\Model\StoreManagerInterface;
+use Magento\Eav\Model\Config;
+use Magento\Framework\App\State as AppState;
 
 /**
  * Setup bundle product
@@ -29,23 +36,23 @@ class Product extends \Magento\CatalogSampleDataVenia\Setup\Product
     /**
      * Product constructor.
      * @param SampleDataContext $sampleDataContext
-     * @param \Magento\Catalog\Model\ProductFactory $productFactory
-     * @param \Magento\Catalog\Model\ConfigFactory $catalogConfig
+     * @param ProductFactory $productFactory
+     * @param ConfigFactory $catalogConfig
      * @param Converter $converter
-     * @param \Magento\CatalogSampleDataVenia\Setup\Product\Gallery $gallery
-     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
-     * @param \Magento\Eav\Model\Config $eavConfig
-     * @param \Magento\Framework\App\State $appState
+     * @param Gallery $gallery
+     * @param StoreManagerInterface $storeManager
+     * @param Config $eavConfig
+     * @param AppState $appState
      */
     public function __construct(
         SampleDataContext $sampleDataContext,
-        \Magento\Catalog\Model\ProductFactory $productFactory,
-        \Magento\Catalog\Model\ConfigFactory $catalogConfig,
-        \Magento\CatalogSampleDataVenia\Model\Bundle\Converter $converter,
-        \Magento\CatalogSampleDataVenia\Setup\Product\Gallery $gallery,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Magento\Eav\Model\Config $eavConfig,
-        \Magento\Framework\App\State $appState
+        ProductFactory $productFactory,
+        ConfigFactory $catalogConfig,
+        Converter $converter,
+        Gallery $gallery,
+        StoreManagerInterface $storeManager,
+        Config $eavConfig,
+        AppState $appState
     ) {
         $this->eavConfig = $eavConfig;
         parent::__construct(
