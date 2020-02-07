@@ -64,9 +64,9 @@ class InstallDownloadableProducts implements DataPatchInterface
         $this->attribute->install(['Magento_CatalogSampleDataVenia::fixtures/Downloadable/attributes.csv']);
         $this->category->install(['Magento_CatalogSampleDataVenia::fixtures/Downloadable/categories.csv']);
         $this->downloadableProduct->install(
-            ['Magento_CatalogSampleDataVenia::fixtures/Downloadable/products_video_download.csv'],
-            ['Magento_CatalogSampleDataVenia::fixtures/Downloadable/images_products_video.csv'],
-            ['Magento_CatalogSampleDataVenia::fixtures/Downloadable/downloadable_data_video_download.csv']
+            ['Magento_CatalogSampleDataVenia::fixtures/Downloadable/products_download.csv'],
+            ['Magento_CatalogSampleDataVenia::fixtures/Downloadable/images_products_download.csv'],
+            ['Magento_CatalogSampleDataVenia::fixtures/Downloadable/downloadable_data.csv']
         );
     }
 

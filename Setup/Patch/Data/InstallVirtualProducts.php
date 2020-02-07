@@ -76,9 +76,7 @@ class InstallVirtualProducts implements DataPatchInterface
      */
     public static function getDependencies()
     {
-        return [
-
-        ];
+        return [InstallDownloadableProducts::class];
     }
 
 }
