@@ -182,7 +182,9 @@ class Converter
         $ids = [];
         $tree = $this->categoryTree->getTree($this->categoryTree->getRootNode(null), null);
         foreach ($categories as $name) {
+            $cats = $tree->getChildrenData();
             foreach ($tree->getChildrenData() as $child) {
+                $f = $child->getName();
                 if ($child->getName() == $name) {
                     /** @var \Magento\Catalog\Api\Data\CategoryTreeInterface $child */
                     $tree = $child;

@@ -44,7 +44,6 @@ class InstallGroupedProducts implements DataPatchInterface
 
     public function apply()
     {
-        $this->storeManager->setCurrentStore(Store::DISTRO_STORE_ID);
         $this->groupedProduct->install(
             ['Magento_CatalogSampleDataVenia::fixtures/Grouped/jewelry_grouped.csv'] ,
             ['Magento_CatalogSampleDataVenia::fixtures/Grouped/images_jewelry_grouped.csv']
@@ -53,7 +52,7 @@ class InstallGroupedProducts implements DataPatchInterface
 
     public static function getDependencies()
     {
-        return [InstallSimpleProducts::class];
+        return [InstallSimpleProducts::class,InstallVirtualProducts::class];
     }
 
     public function getAliases()

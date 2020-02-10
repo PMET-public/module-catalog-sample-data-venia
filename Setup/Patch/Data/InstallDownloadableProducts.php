@@ -59,10 +59,7 @@ class InstallDownloadableProducts implements DataPatchInterface
 
     public function apply()
     {
-        $this->storeManager->setCurrentStore(Store::DISTRO_STORE_ID);
-
         $this->attribute->install(['Magento_CatalogSampleDataVenia::fixtures/Downloadable/attributes.csv']);
-        $this->category->install(['Magento_CatalogSampleDataVenia::fixtures/Downloadable/categories.csv']);
         $this->downloadableProduct->install(
             ['Magento_CatalogSampleDataVenia::fixtures/Downloadable/products_download.csv'],
             ['Magento_CatalogSampleDataVenia::fixtures/Downloadable/images_products_download.csv'],
@@ -72,7 +69,7 @@ class InstallDownloadableProducts implements DataPatchInterface
 
     public static function getDependencies()
     {
-        return [];
+        return [InstallVirtualProducts::class];
     }
 
     public function getAliases()

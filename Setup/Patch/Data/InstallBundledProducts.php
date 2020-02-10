@@ -43,7 +43,6 @@ class InstallBundledProducts implements DataPatchInterface
 
     public function apply()
     {
-        $this->storeManager->setCurrentStore(Store::DISTRO_STORE_ID);
         $this->bundleProduct->install(
             ['Magento_CatalogSampleDataVenia::fixtures/Bundle/jewelry_bundle.csv'] ,
             ['Magento_CatalogSampleDataVenia::fixtures/Bundle/images_jewelry_bundle.csv']
@@ -52,7 +51,7 @@ class InstallBundledProducts implements DataPatchInterface
 
     public static function getDependencies()
     {
-        return [InstallSimpleProducts::class];
+        return [InstallSimpleProducts::class,InstallVirtualProducts::class];
     }
 
     public function getAliases()
