@@ -195,7 +195,7 @@ class Converter extends \Magento\CatalogSampleDataVenia\Setup\Product\Converter
 
         $samples = [];
         for ($i = 1; $i <= 3; $i++) {
-            $sample['title'] = 'Trailer #' . $i;
+            $sample['title'] = 'Sample #' . $i;
             $samples[] = $sample;
         }
 
