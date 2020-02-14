@@ -142,7 +142,6 @@ class Product
                 if (empty($data['visibility'])) {
                     $product->setVisibility(\Magento\Catalog\Model\Product\Visibility::VISIBILITY_BOTH);
                 }
-
                 $this->prepareProduct($product, $data);
                 $this->appState->emulateAreaCode(
                     'adminhtml',

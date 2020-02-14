@@ -151,7 +151,7 @@ class Converter extends \Magento\CatalogSampleDataVenia\Setup\Product\Converter
         $linkPath = $directory->getAbsolutePath('downloadable/files/links' . $linkData['link_item_file']);
         $data = base64_encode(file_get_contents($linkPath));
         $content = $this->getFileContent()->setFileData($data)
-            ->setName('luma_background_-_model_against_fence_4_sec_.mp4');
+            ->setName('vdl01_product.pdf');
         $link = [
             'is_delete' => '',
             'link_id' => '0',
@@ -176,16 +176,16 @@ class Converter extends \Magento\CatalogSampleDataVenia\Setup\Product\Converter
     {
         $directory = $this->getFilesystem()->getDirectoryRead(DirectoryList::MEDIA);
         $linkPath = $directory->getAbsolutePath(
-            'downloadable/files/samples/l/u/luma_background_-_model_against_fence_4_sec_.mp4'
+            'downloadable/files/samples/v/d/vdl01_product.pdf'
         );
         $data = base64_encode(file_get_contents($linkPath));
         $content = $this->getFileContent()->setFileData($data)
-            ->setName('luma_background_-_model_against_fence_4_sec_.mp4');
+            ->setName('vdl01_product.pdf');
         $sample = [
             'is_delete' => '',
             'sample_id' => '0',
             'file' => json_encode([[
-                'file' => '/l/u/luma_background_-_model_against_fence_4_sec_.mp4',
+                'file' => '/v/d/vdl01_product.pdf',
                 'status' => 'old',
             ]]),
             'type' => 'file',
