@@ -16,6 +16,7 @@ use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Filesystem;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory as ProductCollectionFactory;
+use Magento\Framework\Filesystem\DriverInterface;
 
 /**
  * Class Converter
@@ -32,6 +33,9 @@ class Converter extends \Magento\CatalogSampleDataVenia\Setup\Product\Converter
      */
     private $filesystem;
 
+    /** @var DriverInterface */
+    protected $driverInterface;
+   
     /**
      * Converter constructor.
      * @param TreeFactory $categoryTreeFactory
@@ -43,6 +47,7 @@ class Converter extends \Magento\CatalogSampleDataVenia\Setup\Product\Converter
      * @param ProductCollectionFactory $productCollectionFactory
      * @param ContentInterfaceFactory|null $fileContentFactory
      * @param Filesystem|null $filesystem
+     * @param DriverInterface $driverInterface
      */
     public function __construct(
         TreeFactory $categoryTreeFactory,
@@ -53,7 +58,8 @@ class Converter extends \Magento\CatalogSampleDataVenia\Setup\Product\Converter
         OptionCollectionFactory $attrOptionCollectionFactory,
         ProductCollectionFactory $productCollectionFactory,
         ContentInterfaceFactory $fileContentFactory = null,
-        Filesystem $filesystem = null
+        Filesystem $filesystem = null,
+        DriverInterface $driverInterface
     ) {
         parent::__construct(
             $categoryTreeFactory,
@@ -70,6 +76,8 @@ class Converter extends \Magento\CatalogSampleDataVenia\Setup\Product\Converter
         $this->filesystem = $filesystem ?: ObjectManager::getInstance()->get(
             Filesystem::class
         );
+
+        $this->driverInterface = $driverInterface;
     }
 
 
@@ -149,7 +157,7 @@ class Converter extends \Magento\CatalogSampleDataVenia\Setup\Product\Converter
         }
         $directory = $this->getFilesystem()->getDirectoryRead(DirectoryList::MEDIA);
         $linkPath = $directory->getAbsolutePath('downloadable/files/links' . $linkData['link_item_file']);
-        $data = base64_encode(file_get_contents($linkPath));
+        $data = base64_encode($this->driverInterface->fileGetContents($linkPath));
         $content = $this->getFileContent()->setFileData($data)
             ->setName('vdl01_product.pdf');
         $link = [
